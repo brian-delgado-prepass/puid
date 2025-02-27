@@ -21,6 +21,9 @@ module.exports = defineConfig({
       framework: 'react',
       bundler: 'vite',
     },
+    specPattern: 'cypress/component/**/*.cy.{js,jsx,ts,tsx}',
+    supportFile: 'cypress/support/component.js',
+    indexHtmlFile: 'cypress/support/component-index.html',
     // Enable recording
     video: true,
     videoCompression: 32,
