@@ -1,0 +1,22 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[dev]
+  command = "npm run dev"
+  port = 5173
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Run tests before build
+[build.environment]
+  CYPRESS_CACHE_FOLDER = "./node_modules/CypressBinary"
+  # Skip installing Cypress binary during npm install
+  CYPRESS_INSTALL_BINARY = "0"
+
+# Pre-build command to run tests
+[build.lifecycle]
+  onBuild = "npm run test && npm run test:component"
