@@ -17,8 +17,13 @@ describe('App Component', () => {
 
   it('validates required fields', () => {
     mount(<App />);
-    cy.contains('button', 'Next').click();
-    cy.contains('Basic Information').should('be.visible');
+    cy.get('button').should('be.disabled');
+    
+    cy.get('input[name="name"]').type('Test Name');
+    cy.get('input[name="email"]').type('test@example.com');
+    
+    cy.get('button').should('not.be.disabled');
+    cy.get('button').click();
   });
 
   it('allows entering basic information', () => {

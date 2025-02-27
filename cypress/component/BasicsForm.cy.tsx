@@ -18,11 +18,17 @@ describe('Basics Form Component', () => {
   it('validates required fields', () => {
     mount(<App />);
     
-    // Try to proceed without filling required fields
-    cy.contains('button', 'Next').click();
+    // First verify button is disabled
+    cy.get('button').should('be.disabled');
     
-    // Next button should be disabled
-    cy.contains('button', 'Next').should('be.disabled');
+    // Fill in required fields
+    cy.get('input[name="name"]').type('Test Name');
+    cy.get('input[name="email"]').type('test@example.com');
+    // Add other required fields...
+    
+    // Now verify button is enabled
+    cy.get('button').should('not.be.disabled');
+    cy.get('button').click();
   });
 
   it('enables next button when all required fields are filled', () => {
