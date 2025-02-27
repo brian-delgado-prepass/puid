@@ -14,7 +14,7 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:component": "cypress run --component --record --key 3c62c416-079b-4408-b8c4-0ba3a1e645e6",
-    "test:e2e:ci": "start-server-and-test dev http://localhost:5173 'cypress run --record --config video=true'",
+    "test:e2e:ci": "start-server-and-test dev http://localhost:5173 'cypress run --record --key 3c62c416-079b-4408-b8c4-0ba3a1e645e6 --config video=true'",
     "ci": "npm run test && npm run test:component && npm run test:e2e:ci"
   },
   "dependencies": {
