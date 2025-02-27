@@ -15,22 +15,6 @@ describe('Basics Form Component', () => {
     cy.get('select[name="gender"]').should('be.visible');
   });
 
-  it('validates required fields', () => {
-    mount(<App />);
-    
-    // First verify button is disabled
-    cy.get('button').should('be.disabled');
-    
-    // Fill in required fields
-    cy.get('input[name="name"]').type('Test Name');
-    cy.get('input[name="email"]').type('test@example.com');
-    // Add other required fields...
-    
-    // Now verify button is enabled
-    cy.get('button').should('not.be.disabled');
-    cy.get('button').click();
-  });
-
   it('enables next button when all required fields are filled', () => {
     mount(<App />);
     
