@@ -13,8 +13,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:component": "cypress run --component",
-    "test:e2e:ci": "start-server-and-test dev http://localhost:5173 'cypress run --config video=false,screenshotOnRunFailure=false'",
+    "test:component": "cypress run --component --record",
+    "test:e2e:ci": "start-server-and-test dev http://localhost:5173 'cypress run --record --config video=true'",
     "ci": "npm run test && npm run test:component && npm run test:e2e:ci"
   },
   "dependencies": {
